@@ -57,6 +57,9 @@ jobs:
  deploy-to-prod: 
    needs: [manual-approval] 
    runs-on: ubuntu-latest
+   environment:     
+        name: Prod_Env
+        url: 'http://www.GoodTimes.com'
    steps:   
     - run: echo 'Deploy to Prod'  
  

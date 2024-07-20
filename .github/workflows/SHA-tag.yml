@@ -12,8 +12,8 @@ jobs:
 
     steps:              
       - run: |      
-            echo "$GITHUB_SHA"  
-            SHORT_SHA= ( ${GITHUB_SHA} | cut -c 1-7)
+            echo "The Short SHA is: $GITHUB_SHA"  
+            SHORT_SHA=  ${GITHUB_SHA} | cut -c 1-7
             echo "$SHORT_SHA"
             #echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c 1-7`" >> $GITHUB_ENV  
             echo "this is the last line"

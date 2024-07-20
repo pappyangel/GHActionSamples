@@ -1,4 +1,4 @@
-name: Action-to-Test
+name: Dinner
 
 on:
     workflow_dispatch:

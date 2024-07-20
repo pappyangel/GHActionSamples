@@ -19,8 +19,8 @@ jobs:
       - name: Print vars
         # variables cannot be used in the same step where they are created
         run: |         
-         echo ${env.SHORT_SHA}
-         echo ${env.CONTAINER_TAG}
+         echo ${SHORT_SHA}
+         echo ${CONTAINER_TAG}
          echo ${{env.SHORT_SHA}}
          echo ${{env.CONTAINER_TAG}}
          

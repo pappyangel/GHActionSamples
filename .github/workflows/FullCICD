@@ -1,0 +1,64 @@
+name: Full CICD sample
+
+on:  
+ workflow_dispatch:
+ 
+jobs:
+ build-app: 
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v2
+   - run: echo 'Build on Azure'
+ unit-test: 
+  needs: [build-app]
+  runs-on: ubuntu-latest
+  steps:   
+   - run: echo 'Unit Test'  
+ integration-test: 
+  needs: [unit-test]
+  runs-on: ubuntu-latest
+  steps:   
+   - run: echo 'Integration Test'   
+ deploy-to-dev-env: 
+  needs: [unit-test]
+  runs-on: ubuntu-latest
+  steps:   
+   - run: echo 'Deploy to Dev Env'   
+ system-test: 
+  needs: [integration-test]
+  runs-on: ubuntu-latest
+  steps:   
+   - run: echo 'System Test'   
+ deploy-to-int-env: 
+  needs: [integration-test]
+  runs-on: ubuntu-latest
+  steps:   
+    - run: echo 'Deploy to Integration Test Env'   
+ deploy-to-qa: 
+   needs: [system-test] 
+   runs-on: ubuntu-latest
+   steps:   
+    - run: echo 'Deploy to QA'  
+ perf-test: 
+   needs: [system-test] 
+   runs-on: ubuntu-latest
+   steps:   
+    - run: echo 'Performance Test'  
+ smoke-test:  
+   needs: [system-test] 
+   runs-on: ubuntu-latest
+   steps:   
+    - run: echo 'Smoke Test'     
+ manual-approval: 
+   needs: [perf-test, smoke-test] 
+   runs-on: ubuntu-latest
+   steps:   
+    - run: echo 'Wait for Manual Approval'  
+ deploy-to-prod: 
+   needs: [manual-approval] 
+   runs-on: ubuntu-latest
+   steps:   
+    - run: echo 'Deploy to Prod'  
+ 
+
+ 

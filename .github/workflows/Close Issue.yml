@@ -8,24 +8,14 @@ on:
         default: "my input value"
   
 jobs:
-  build:
+  closeissue:
     runs-on: ubuntu-latest
     
     steps:
-    # - uses: actions/checkout@v2.6.0
-      
-    # - name: Show Inputs
-    # run: echo "${{ toJSON(github.event.inputs) }}"
-      
-    # - name: hello input
-    #   run: echo ${{ inputs.TimIssue }} 
-      
-    # - name: hello world var
-    #   run: echo $HELLO_WORLD
     
     - name: Close Issue
       uses: peter-evans/close-issue@v3.0.1
       with:
-          issue-number: ${{ inputs.TimIssue }} 
+          issue-number: ${{ inputs.Issue }} 
           comment: Auto-closing issue
           close-reason: completed

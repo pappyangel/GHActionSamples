@@ -3,9 +3,9 @@ name: Close Issue
 on: 
   workflow_dispatch:
      inputs:
-      TimIssue:
-        description: "which issue shall we close?"
-        default: "my input value"
+      IssueToClose:
+        description: "Enter Issue Number to close"
+        # default: "Enter Issue Number"
   
 jobs:
   closeissue:
@@ -16,6 +16,6 @@ jobs:
     - name: Close Issue
       uses: peter-evans/close-issue@v3.0.1
       with:
-          issue-number: ${{ inputs.Issue }} 
+          issue-number: ${{ inputs.IssueToClose }} 
           comment: Auto-closing issue
           close-reason: completed

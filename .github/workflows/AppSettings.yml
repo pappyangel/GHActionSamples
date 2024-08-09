@@ -28,6 +28,17 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+        
+      - uses: microsoft/variable-substitution@v1 
+        with:
+          files: 'Application/*.json, Application/*.yaml, ./Application/SampleWebApplication/We*.config'
+        env:
+          Var1: "value1"
+          Var2.key1: "value2"
+          
+
+
+
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script

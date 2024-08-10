@@ -29,7 +29,7 @@ jobs:
     - name: Print vars        
       run: |                 
        echo ${{env.APP_FOLDER_PATH}}
-       echo "The date time for this run was: ${{env.RUN_DT}}
+       echo "The date time for this run was: ${{env.RUN_DT}}"
          
     - name: update build number from GH Action 
       uses: TomaszKandula/variable-substitution@v1.0.2

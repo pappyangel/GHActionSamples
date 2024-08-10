@@ -22,17 +22,22 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-        
+
+    - name: Print vars        
+      run: |         
+       echo ${env.APP_FOLDER_PATH}       
+       echo ${{env.APP_FOLDER_PATH}}
+         
     - name: update build number from GH Action 
       uses: TomaszKandula/variable-substitution@v1.0.2
       with:
-          files: '{{env.APP_FOLDER_PATH}}/appsettings.json'
+          files: '${{env.APP_FOLDER_PATH}}/appsettings.json'
       env:
           BuildNumber: "GH-Action"          
           
     - name: Restore, Build, Test, Publish  
       run: |
-        cd {{env.APP_FOLDER_PATH}}
+        cd ${{env.APP_FOLDER_PATH}}
         dotnet restore   
         dotnet build --no-restore
         dotnet test --no-build --verbosity normal

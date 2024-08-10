@@ -1,4 +1,4 @@
-name: BuildDeploy ActionBuildNumber App
+name: ActionBuildNumber App
 env:  
   APP_FOLDER_PATH: ActionBuildNumber
   

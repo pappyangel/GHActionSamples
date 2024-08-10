@@ -23,16 +23,20 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
+    - name: Get DateTime 
+      run:  echo "RUN_DT=$(date)" >> $GITHUB_ENV
+       
     - name: Print vars        
-      run:                 
+      run:  |                 
        echo ${{env.APP_FOLDER_PATH}}
+       echo "The date time for this run was: ${{env.RUN_DT}}
          
     - name: update build number from GH Action 
       uses: TomaszKandula/variable-substitution@v1.0.2
       with:
           files: '${{env.APP_FOLDER_PATH}}/appsettings.json'
       env:
-          BuildNumber: "GH-Action"          
+          BuildNumber: ${{env.RUN_DT}}
           
     - name: Restore, Build, Test, Publish  
       run: |

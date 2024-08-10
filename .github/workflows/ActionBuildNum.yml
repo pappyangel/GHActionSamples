@@ -27,7 +27,7 @@ jobs:
       run:  echo "RUN_DT=$(date)" >> $GITHUB_ENV
        
     - name: Print vars        
-      run:  |                 
+      run: |                 
        echo ${{env.APP_FOLDER_PATH}}
        echo "The date time for this run was: ${{env.RUN_DT}}
          

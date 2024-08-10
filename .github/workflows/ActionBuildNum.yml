@@ -24,8 +24,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Print vars        
-      run: |         
-       echo ${env.APP_FOLDER_PATH}       
+      run:                 
        echo ${{env.APP_FOLDER_PATH}}
          
     - name: update build number from GH Action 

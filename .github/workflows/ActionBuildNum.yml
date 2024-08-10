@@ -1,5 +1,7 @@
 name: BuildDeploy ActionBuildNumber App
-
+env:  
+  APP_FOLDER_PATH: ActionBuildNumber
+  
 on:    
   # push:
   #   branches: main
@@ -20,9 +22,17 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+        
+    - name: update build number from GH Action 
+      uses: TomaszKandula/variable-substitution@v1.0.2
+      with:
+          files: '{{env.APP_FOLDER_PATH}}/appsettings.json'
+      env:
+          BuildNumber: "GH-Action"          
+          
     - name: Restore, Build, Test, Publish  
       run: |
-        cd ActionBuildNumber
+        cd {{env.APP_FOLDER_PATH}}
         dotnet restore   
         dotnet build --no-restore
         dotnet test --no-build --verbosity normal

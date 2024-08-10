@@ -24,7 +24,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Get DateTime 
-      run:  echo "RUN_DT=$(TZ='America/New_York' date)" >> $GITHUB_ENV
+      run:  echo "RUN_DT=$(TZ='America/New_York' date +'%m/%d/%Y %I:%M %p')" >> $GITHUB_ENV
        
     - name: Print vars        
       run: |                 

@@ -1,1 +1,17 @@
 dotnet new blazor -au none -int Server -o ActionBuildNumber
+
+date -d '21 Aug 1993' +'%A -> %d %B - %Y'
+
+timedatectl list-timezones
+
+date
+
+TZ='Etc/GMT+5' date
+
+TZ='America/New_York' date +'%A -> %d %B - %Y'
+
+TZ='America/New_York' date '%D %H %m'
+
+TZ='America/New_York' date +'%m/%d/%Y %H:%M'
+
+TZ='America/New_York' date +'%m/%d/%Y %I:%M %p'

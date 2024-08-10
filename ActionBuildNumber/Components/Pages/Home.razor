@@ -1,0 +1,21 @@
+﻿@page "/"
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+<PageTitle>Home</PageTitle>
+
+<h1>Blazor Server Configuration Test</h1>
+
+Display build number from various sources:
+
+
+<hr>
+
+
+<p>
+    Environment is: @Configuration["Environment"]
+<br/>
+    Build Number is from: @Configuration["BuildNumber"]
+</p>
+ 
